@@ -1,19 +1,25 @@
-.body {
+body {
   font-family: arial, sans-serif;
 }
 
-.weather-app {
-  max-width: 600px;
-  margin: 30px auto;
-  padding: 20px;
-  border: 1px solid #ebebeb;
-  border-radius: 5px;
-}
 h1 {
   color: grey;
   font-weight: 100px;
   font-size: xx-large;
   margin-bottom: 0;
+}
+
+.weather-app {
+  max-width: 600px;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+}
+
+.weather-app-wrapper {
+  max-width: 600px;
+  margin: 30px auto;
 }
 
 .dayDetails {
@@ -33,4 +39,59 @@ h1 {
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
+}
+.overview {
+  margin-bottom: 20px;
+}
+
+.weatherDetails {
+  padding-inline-start: 0;
+  margin: 0;
+}
+
+.precipitation {
+  list-style: none;
+  color: grey;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
+.humidity {
+  list-style: none;
+  color: grey;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
+.wind {
+  list-style: none;
+  color: grey;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
+.weather-temperature {
+  margin-right: 7px;
+  height: 64px;
+  width: 64;
+}
+.degrees {
+  color: black;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1;
+  margin-right: 3px;
+}
+
+.units {
+  position: relative;
+  font-size: 16px;
+  top: -32px;
+}
+
+.attribution {
+  padding-left: 15px;
 }
