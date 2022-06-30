@@ -91,7 +91,6 @@ function convertC(event) {
   let temp = tempElement.innerHTML;
   let cTemp = Math.round((temp - 32) / 1.8);
   tempElement.innerHTML = cTemp;
-
   document
     .getElementById("celsius-link")
     .removeEventListener("click", convertC);
