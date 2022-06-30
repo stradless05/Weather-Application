@@ -20,6 +20,7 @@ function searchCity(city) {
 }
 
 function displayTemperature(response) {
+  console.log(response);
   let degreeElement = document.getElementById("degreeElement");
   degreeElement.innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.getElementById("cityElement");
@@ -30,7 +31,11 @@ function displayTemperature(response) {
   let humidity = response.data.main.humidity;
   humidityElement.innerHTML = `Humidity: ${humidity} %`;
   let wind = Math.round(response.data.wind.speed);
-  windElement.innerHTML = `Wind: ${wind} Km/H`;
+  windElement.innerHTML = `Wind Speed: ${wind} Km/H`;
+  let feelElement = document.getElementById("feelsLike");
+  feelElement.innerHTML = `Feels Like: ${Math.round(
+    response.data.main.feels_like
+  )}° C`;
   let dateElement = document.getElementById("dateElement");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
   let iconElement = document.getElementById("iconElement");
