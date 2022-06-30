@@ -1,6 +1,9 @@
 let form = document.getElementById("searchForm");
 form.addEventListener("submit", submit);
-searchCity("sfax");
+searchCity("Sfax");
+
+let flink = document.getElementById("fahrenheit-link");
+flink.addEventListener("click", convertF);
 
 function submit(event) {
   event.preventDefault();
@@ -40,14 +43,7 @@ function displayTemperature(response) {
 
 function formatDate(timeStamp) {
   let date = new Date(timeStamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
-  let minutes = date.getMinutes();
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+
   let days = [
     "Monday",
     "Tuesday",
@@ -57,6 +53,49 @@ function formatDate(timeStamp) {
     "Saturday",
     "Sunday",
   ];
+
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   let day = days[date.getDay()];
-  return `${day} ${hours}:${minutes}`;
+  let month = months[date.getMonth()];
+  let dom = date.getDate();
+  let year = date.getFullYear();
+  return `${day}, ${month} ${dom}, ${year}`;
+}
+function convertF(event) {
+  let tempElement = document.getElementById("degreeElement");
+  let temp = tempElement.innerHTML;
+  let fTemp = Math.round((temp * 9) / 5 + 32);
+  tempElement.innerHTML = fTemp;
+  document
+    .getElementById("fahrenheit-link")
+    .removeEventListener("click", convertF);
+
+  let clink = document.getElementById("celsius-link");
+  clink.addEventListener("click", convertC);
+}
+function convertC(event) {
+  let tempElement = document.getElementById("degreeElement");
+  let temp = tempElement.innerHTML;
+  let cTemp = Math.round((temp - 32) / 1.8);
+  tempElement.innerHTML = cTemp;
+
+  document
+    .getElementById("celsius-link")
+    .removeEventListener("click", convertC);
+
+  let flink = document.getElementById("fahrenheit-link");
+  flink.addEventListener("click", convertF);
 }
