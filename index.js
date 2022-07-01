@@ -79,6 +79,7 @@ function formatDate(timeStamp) {
   let year = date.getFullYear();
   return `${day}, ${month} ${dom}, ${year}`;
 }
+
 function convertF(event) {
   let tempElement = document.getElementById("degreeElement");
   let temp = tempElement.innerHTML;
@@ -103,3 +104,5 @@ function convertC(event) {
   let flink = document.getElementById("fahrenheit-link");
   flink.addEventListener("click", convertF);
 }
+
+displayForecast();
