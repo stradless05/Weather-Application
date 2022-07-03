@@ -2,8 +2,7 @@ let form = document.getElementById("searchForm");
 form.addEventListener("submit", submit);
 searchCity("Sfax");
 
-let flink = document.getElementById("fahrenheit-link");
-flink.addEventListener("click", convertF);
+enableF();
 
 function submit(event) {
   event.preventDefault();
@@ -24,12 +23,8 @@ function displayTemperature(response) {
   let degreeElement = document.getElementById("degreeElement");
   degreeElement.innerHTML = Math.round(response.data.main.temp);
 
-  document
-    .getElementById("celsius-link")
-    .removeEventListener("click", convertC);
-
-  let flink = document.getElementById("fahrenheit-link");
-  flink.addEventListener("click", convertF);
+  enableF();
+  disableC();
 
   let cityElement = document.getElementById("cityElement");
   cityElement.innerHTML = response.data.name;
@@ -105,12 +100,18 @@ function convertC(event) {
   let temp = tempElement.innerHTML;
   let cTemp = Math.round((temp - 32) / 1.8);
   tempElement.innerHTML = cTemp;
+  enableF();
+  disableC();
+}
+
+function enableF() {
+  let flink = document.getElementById("fahrenheit-link");
+  flink.addEventListener("click", convertF);
+}
+function disableC() {
   document
     .getElementById("celsius-link")
     .removeEventListener("click", convertC);
-
-  let flink = document.getElementById("fahrenheit-link");
-  flink.addEventListener("click", convertF);
 }
 
 displayForecast();
