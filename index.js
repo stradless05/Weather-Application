@@ -23,6 +23,14 @@ function displayTemperature(response) {
   console.log(response);
   let degreeElement = document.getElementById("degreeElement");
   degreeElement.innerHTML = Math.round(response.data.main.temp);
+
+  document
+    .getElementById("celsius-link")
+    .removeEventListener("click", convertC);
+
+  let flink = document.getElementById("fahrenheit-link");
+  flink.addEventListener("click", convertF);
+
   let cityElement = document.getElementById("cityElement");
   cityElement.innerHTML = response.data.name;
   let looksLike = document.getElementById("looksLike");
@@ -50,13 +58,13 @@ function formatDate(timeStamp) {
   let date = new Date(timeStamp);
 
   let days = [
+    "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
     "Saturday",
-    "Sunday",
   ];
 
   let months = [
