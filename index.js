@@ -1,6 +1,6 @@
 let form = document.getElementById("searchForm");
 form.addEventListener("submit", submit);
-searchCity("Sfax");
+searchCity("Paris");
 
 enableF();
 
