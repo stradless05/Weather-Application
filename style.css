@@ -9,6 +9,14 @@ h1 {
   margin-bottom: 0;
 }
 
+.text-size {
+  list-style: none;
+  color: grey;
+  font-size: 16px;
+  font-weight: 100;
+  line-height: 19px;
+}
+
 .weather-app {
   max-width: 600px;
   margin: 10px;
@@ -26,19 +34,8 @@ h1 {
   padding-inline-start: 0;
   margin: 0;
 }
-.dayTime {
-  list-style: none;
-  color: grey;
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
-}
-.looksLike {
-  list-style: none;
-  color: grey;
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
+
+.capitalize {
   text-transform: capitalize;
 }
 .overview {
@@ -50,37 +47,13 @@ h1 {
   margin: 0;
 }
 
-.precipitation {
-  list-style: none;
-  color: grey;
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
-}
-
-.humidity {
-  list-style: none;
-  color: grey;
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
-}
-
-.wind {
-  list-style: none;
-  color: grey;
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
-}
-
 .weather-temperature {
   margin-right: 7px;
   height: 64px;
-  width: 64;
+  width: 64px;
 }
 .degrees {
-  color: black;
+  color: grey;
   font-weight: 400;
   font-size: 64px;
   line-height: 1;
@@ -105,10 +78,29 @@ h1 {
 .links {
   position: absolute;
 }
-.feelsLike {
-  list-style: none;
-  color: grey;
-  font-size: 16px;
-  font-weight: 100;
-  line-height: 19px;
+
+@media only screen and (max-width: 450px) {
+  .text-size {
+    list-style: none;
+    color: grey;
+    font-size: 13px;
+    font-weight: 100;
+    line-height: 19px;
+  }
+  .degrees {
+    color: grey;
+    font-weight: 400;
+    font-size: 44px;
+    line-height: 1;
+    margin-right: 3px;
+  }
+  .links {
+    position: absolute;
+    font-size: 8px;
+  }
+  .weather-temperature {
+    margin-right: 7px;
+    height: 54px;
+    width: 54px;
+  }
 }
