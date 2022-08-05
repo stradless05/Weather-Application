@@ -13,6 +13,8 @@ function onButtonClick(event) {
   let search = document.getElementById("search");
   let city = search.value;
   apiCall(city);
+  fLink.addEventListener("click", clickF);
+  cLink.removeEventListener("click", clickC);
 }
 function apiCall(city) {
   let apiKey = "5f091c27ecd3875fabda53b65ecd4358";
