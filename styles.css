@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  margin: 20px;
+}
+.wrapper {
+  margin: 30px auto;
+  background: linear-gradient(
+    179.7deg,
+    rgb(248, 126, 126) -0.5%,
+    rgb(251, 206, 143) 35.3%,
+    rgb(184, 252, 233) 67.2%,
+    rgb(118, 162, 229) 92.3%
+  );
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.search {
+  border-radius: 20px;
+  border: none;
+  padding: 15px;
+  background-color: #76a2e5;
+  text-align: center;
+  display: block;
+  font-family: "Michroma", sans-serif;
+  text-transform: uppercase;
+}
+.submit {
+  width: 100%;
+  border-radius: 20px;
+  border: none;
+  padding: 15px;
+  background-color: #c1f6dd;
+  font-family: "Michroma", sans-serif;
+  text-transform: uppercase;
+}
+.divider-line-1 {
+  height: 30px;
+}
+.city-name {
+  font-family: "Orbitron", sans-serif;
+  font-size: 80px;
+}
+.day-time {
+  font-family: "Orbitron", sans-serif;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.temperature {
+  font-family: "Orbitron", sans-serif;
+  font-size: 70px;
+}
+
+a:link {
+  text-decoration: none;
+  position: relative;
+  bottom: 35px;
+}
+.image {
+  position: relative;
+  bottom: 25px;
+}
+.looks-like {
+  font-family: "Orbitron", sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  position: relative;
+  bottom: 40px;
+}
+.weatherDetails {
+  font-family: "Orbitron", sans-serif;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+@media only screen and (max-width: 600px) {
+  container {
+    display: flex;
+    margin: 20px;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

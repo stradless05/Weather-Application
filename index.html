@@ -4,76 +4,73 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather Appplication</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
     <!-- CSS only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Michroma&family=Orbitron&display=swap"
       rel="stylesheet"
     />
-    <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <title>Weather-App-July-19</title>
   </head>
   <body>
     <div class="container">
-      <div class="weather-app-wrapper">
-        <div class="weather-app">
-          <form id="searchForm" class="mb-3">
-            <div class="row">
-              <div class="col-8">
-                <input
-                  type="search"
-                  placeholder="Type a City"
-                  class="form-control"
-                  id="cityInput"
-                />
-              </div>
-              <div class="col-4">
-                <input
-                  type="submit"
-                  value="search"
-                  class="btn btn-primary w-100"
-                />
-              </div>
-            </div>
-          </form>
-          <div class="overview">
-            <h1 id="cityElement">New York</h1>
-            <ul class="dayDetails">
-              <li class="text-size" id="dateElement">Last updated:</li>
-              <li class="text-size capitalize" id="looksLike">Clear</li>
-            </ul>
+      <div class="wrapper">
+        <div class="row mt-3">
+          <div class="col-12">
+            <input
+              type="text"
+              class="search mx-auto"
+              style="width: 100%"
+              id="search"
+              placeholder="Type Your City"
+            />
           </div>
-          <div class="row">
-            <div class="col-6">
-              <div class="clearfix">
-                <img
-                  alt="sun"
-                  class="float-left weather-temperature"
-                  id="iconElement"
-                />
-                <span class="degrees" id="degreeElement"></span>
-                <span class="links">
-                  <a href="#" id="celsius-link">C°|</a>
-                  <a href="#" id="fahrenheit-link">F°</a>
-                </span>
-              </div>
-            </div>
-            <div class="col-6">
-              <ul class="weatherDetails">
-                <li class="text-size" id="humidityElement">Humidity:</li>
-                <li class="text-size" id="windElement">Wind: 3 mph</li>
-                <li class="text-size" id="feelsLike">hot</li>
-              </ul>
-            </div>
-          </div>
-          <div class="weatherForecast" id="weatherForecast"></div>
         </div>
-        <small class="attribution">
-          <a href="https://github.com/stradless05/weather-app" target="_blank">
-            Open source code
-          </a>
-          by Emily Mahler
-        </small>
+        <div class="row mt-4 text-center">
+          <div class="col-12">
+            <input
+              type="submit"
+              style="width: 100%"
+              class="submit mx-auto"
+              id="submit"
+              placeholder="Search"
+            />
+          </div>
+        </div>
+        <hr />
+        <h1 id="cityName" class="city-name text-center">Paris</h1>
+        <div class="day-time text-center" id="current">Monday, 9:00</div>
+        <br />
+        <div class="flex-container">
+          <div class="temp-element">
+            <span class="temperature" id="temp">30°</span>
+            <span class="cLink" id="cLink"> <a href="#">C°|</a></span>
+            <span class="fLink" id="fLink"> <a href="#">F°</a></span>
+          </div>
+          <div class="text-center image-element">
+            <img
+              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+              alt="sun"
+              id="icon"
+              class="image"
+            />
+            <div class="looks-like" id="looksLike">Clear Sky</div>
+          </div>
+        </div>
+        <div class="weatherDetails mt-4">
+          <div id="humidityElement">Humidity:</div>
+          <div id="windElement">Wind:</div>
+          <div id="feelsLikeElement">Feels Like:</div>
+        </div>
       </div>
     </div>
     <script src="index.js"></script>

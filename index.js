@@ -1,56 +1,68 @@
-let form = document.getElementById("searchForm");
-form.addEventListener("submit", submit);
-searchCity("Paris");
+apiCall("Paris");
 
-enableF();
+current();
 
-function submit(event) {
-  event.preventDefault();
-  let cityInputValue = document.querySelector("#cityInput").value;
-  let cityElement = document.querySelector("#cityElement");
-  searchCity(cityInputValue);
-  cityElement.innerHTML = cityInputValue;
+let button = document.getElementById("submit");
+button.addEventListener("click", onButtonClick);
+
+let fLink = document.getElementById("fLink");
+let cLink = document.getElementById("cLink");
+fLink.addEventListener("click", clickF);
+
+function onButtonClick(event) {
+  let search = document.getElementById("search");
+  let city = search.value;
+  apiCall(city);
 }
-function searchCity(city) {
+function apiCall(city) {
   let apiKey = "5f091c27ecd3875fabda53b65ecd4358";
   let units = "metric";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}&appid=${apiKey}`;
-  axios.get(apiUrl).then(displayTemperature);
+  axios.get(apiUrl).then(showResponse);
 }
-
-function displayTemperature(response) {
+function showResponse(response) {
   console.log(response);
-  let degreeElement = document.getElementById("degreeElement");
-  degreeElement.innerHTML = Math.round(response.data.main.temp);
-
-  enableF();
-  disableC();
-
-  let cityElement = document.getElementById("cityElement");
+  let cityElement = document.getElementById("cityName");
   cityElement.innerHTML = response.data.name;
-  let looksLike = document.getElementById("looksLike");
-  looksLike.innerHTML = response.data.weather[0].description;
+  let descriptionElement = document.getElementById("looksLike");
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  let tempElement = document.getElementById("temp");
+  tempElement.innerHTML = Math.round(response.data.main.temp);
   let humidityElement = document.getElementById("humidityElement");
-  let humidity = response.data.main.humidity;
-  humidityElement.innerHTML = `Humidity: ${humidity} %`;
-  let wind = Math.round(response.data.wind.speed);
-  windElement.innerHTML = `Wind Speed: ${wind} Km/H`;
-  let feelElement = document.getElementById("feelsLike");
-  feelElement.innerHTML = `Feels Like: ${Math.round(
+  humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+  let windElement = document.getElementById("windElement");
+  windElement.innerHTML = `Wind: ${Math.round(
+    response.data.wind.speed
+  )} Km / H`;
+  let feelsLikeElement = document.getElementById("feelsLikeElement");
+  feelsLikeElement.innerHTML = `Feels Like: ${Math.round(
     response.data.main.feels_like
-  )}° C`;
-  let dateElement = document.getElementById("dateElement");
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
-  let iconElement = document.getElementById("iconElement");
+  )} °`;
+  let iconElement = document.getElementById("icon");
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
+}
+function clickF(event) {
+  let defaultTempElement = document.getElementById("temp");
+  let defaultTemp = defaultTempElement.innerHTML;
+  let fahrenheitTemp = Math.round(defaultTemp * 1.8 + 32);
+  defaultTempElement.innerHTML = fahrenheitTemp;
+  fLink.removeEventListener("click", clickF);
+  cLink.addEventListener("click", clickC);
+}
+function clickC(event) {
+  let defaultTempElement = document.getElementById("temp");
+  let defaultTemp = defaultTempElement.innerHTML;
+  let celsiusTemp = Math.round((defaultTemp - 32) / 1.8);
+  defaultTempElement.innerHTML = celsiusTemp;
+  cLink.removeEventListener("click", clickC);
+  fLink.addEventListener("click", clickF);
 }
 
-function formatDate(timeStamp) {
-  let date = new Date(timeStamp);
+function current() {
+  let date = new Date();
 
   let days = [
     "Sunday",
@@ -61,6 +73,7 @@ function formatDate(timeStamp) {
     "Friday",
     "Saturday",
   ];
+  let day = days[date.getDay()];
 
   let months = [
     "January",
@@ -76,42 +89,12 @@ function formatDate(timeStamp) {
     "November",
     "December",
   ];
-  let day = days[date.getDay()];
   let month = months[date.getMonth()];
-  let dom = date.getDate();
+
+  let currentDate = date.getDate();
+
   let year = date.getFullYear();
-  return `${day}, ${month} ${dom}, ${year}`;
-}
 
-function convertF(event) {
-  let tempElement = document.getElementById("degreeElement");
-  let temp = tempElement.innerHTML;
-  let fTemp = Math.round((temp * 9) / 5 + 32);
-  tempElement.innerHTML = fTemp;
-  document
-    .getElementById("fahrenheit-link")
-    .removeEventListener("click", convertF);
-
-  let clink = document.getElementById("celsius-link");
-  clink.addEventListener("click", convertC);
+  let currentTime = document.getElementById("current");
+  currentTime.innerHTML = `${day}, ${month} ${currentDate}, ${year}`;
 }
-function convertC(event) {
-  let tempElement = document.getElementById("degreeElement");
-  let temp = tempElement.innerHTML;
-  let cTemp = Math.round((temp - 32) / 1.8);
-  tempElement.innerHTML = cTemp;
-  enableF();
-  disableC();
-}
-
-function enableF() {
-  let flink = document.getElementById("fahrenheit-link");
-  flink.addEventListener("click", convertF);
-}
-function disableC() {
-  document
-    .getElementById("celsius-link")
-    .removeEventListener("click", convertC);
-}
-
-displayForecast();
