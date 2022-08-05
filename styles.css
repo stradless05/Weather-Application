@@ -19,12 +19,17 @@
   border-radius: 20px;
   border: none;
   padding: 15px;
-  background-color: #76a2e5;
+  background-color: #97cfe7;
   text-align: center;
   display: block;
   font-family: "Michroma", sans-serif;
   text-transform: uppercase;
+  width: 100%;
 }
+::placeholder {
+  color: black;
+}
+
 .submit {
   width: 100%;
   border-radius: 20px;
