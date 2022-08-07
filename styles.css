@@ -11,6 +11,7 @@
     rgb(118, 162, 229) 92.3%
   );
   margin-top: 15px;
+  margin-bottom: 5px;
   padding: 20px;
   border-radius: 20px;
 }
@@ -59,7 +60,7 @@
 }
 .temperature {
   font-family: "Orbitron", sans-serif;
-  font-size: 70px;
+  font-size: 60px;
 }
 
 a:link {
@@ -69,14 +70,14 @@ a:link {
 }
 .image {
   position: relative;
-  bottom: 25px;
+  bottom: 35px;
 }
 .looks-like {
   font-family: "Orbitron", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   position: relative;
-  bottom: 40px;
+  bottom: 50px;
 }
 .weatherDetails {
   font-family: "Orbitron", sans-serif;
