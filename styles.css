@@ -1,6 +1,6 @@
 .container {
-  margin: 0px;
-  padding: 0px;
+  margin-right: 100px;
+  margin-left: 100px;
 }
 .wrapper {
   background: linear-gradient(
@@ -11,6 +11,9 @@
     rgb(118, 162, 229) 92.3%
   );
   padding: 20px;
+  margin-right: 300px;
+  margin-left: 300px;
+  margin-bottom: 0px;
   border-radius: 20px;
 }
 
