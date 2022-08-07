@@ -1,9 +1,8 @@
 .container {
   display: flex;
-  margin: 20px;
 }
 .wrapper {
-  margin: 30px auto;
+  margin: auto;
   background: linear-gradient(
     179.7deg,
     rgb(248, 126, 126) -0.5%,
