@@ -86,6 +86,20 @@ a:link {
   text-align: center;
   text-transform: uppercase;
 }
+.weather-forecast {
+  margin-top: 50px;
+  text-align: center;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  color: black;
+  font-family: "Orbitron", sans-serif;
+}
+.weather-forecast-temperature {
+  font-size: 14px;
+  color: black;
+  font-family: "Orbitron", sans-serif;
+}
 @media only screen and (max-width: 600px) {
   container {
     display: flex;
