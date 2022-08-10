@@ -25,14 +25,14 @@
   display: block;
   font-family: "Michroma", sans-serif;
   text-transform: uppercase;
-  width: 100%;
+  width: 80%;
 }
 ::placeholder {
   color: black;
 }
 
 .submit {
-  width: 100%;
+  width: 60%;
   border-radius: 20px;
   border: none;
   padding: 15px;
@@ -67,18 +67,18 @@
 a:link {
   text-decoration: none;
   position: relative;
-  bottom: 40px;
+  bottom: 35px;
 }
 .image {
   position: relative;
-  bottom: 35px;
+  bottom: 15px;
 }
 .looks-like {
   font-family: "Orbitron", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   position: relative;
-  bottom: 50px;
+  bottom: 35px;
 }
 .weatherDetails {
   font-family: "Orbitron", sans-serif;
