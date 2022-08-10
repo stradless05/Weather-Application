@@ -89,6 +89,7 @@ a:link {
 .weather-forecast {
   margin-top: 50px;
   text-align: center;
+  margin-bottom: 20px;
 }
 .weather-forecast-date {
   font-size: 16px;

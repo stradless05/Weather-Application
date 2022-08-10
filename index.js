@@ -100,3 +100,28 @@ function current() {
   let currentTime = document.getElementById("current");
   currentTime.innerHTML = `${day}, ${month} ${currentDate}, ${year}`;
 }
+function displayForecast () {
+  let forecastElement = document.querySelector("#forecast");
+
+let forecastHTML= `<div class="row">`;
+let days = ["Thu", "Fri", "Sat", "Sun"];
+days.forEach(function(day) {
+
+  forecastHTML= forecastHTML + `
+  <div class="col-2">
+   <div class = "weather-forecast-date">${day}</div> 
+    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" width = "42" alt=""/>
+    <div class = "weather-forecast-temperature">
+      <span class = "weather-forecast-temperature-max">18° </span>
+      <span class = "weather-forecast-temperature-min">24°</span>
+  </div>
+</div>`;
+
+})
+
+
+
+
+forecastElement.innerHTML=forecastHTML;
+}
+displayForecast();
