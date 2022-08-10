@@ -71,14 +71,14 @@ a:link {
 }
 .image {
   position: relative;
-  bottom: 15px;
+  bottom: 25px;
 }
 .looks-like {
   font-family: "Orbitron", sans-serif;
   font-size: 20px;
   text-transform: uppercase;
   position: relative;
-  bottom: 35px;
+  bottom: 45px;
 }
 .weatherDetails {
   font-family: "Orbitron", sans-serif;
@@ -87,7 +87,7 @@ a:link {
   text-transform: uppercase;
 }
 .weather-forecast {
-  margin-top: 50px;
+  margin-top: 70px;
   text-align: center;
   margin-bottom: 20px;
 }
@@ -97,7 +97,7 @@ a:link {
   font-family: "Orbitron", sans-serif;
 }
 .weather-forecast-temperature {
-  font-size: 14px;
+  font-size: 12px;
   color: black;
   font-family: "Orbitron", sans-serif;
 }
