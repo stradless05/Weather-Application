@@ -2,13 +2,14 @@ apiCall("Paris");
 
 current();
 
+let button = document.getElementById("submit");
+button.addEventListener("click", onButtonClick);
+
 function onButtonClick(event) {
   let search = document.getElementById("search");
   let city = search.value;
   apiCall(city);
 }
-
-
 function apiCall(city) {
   let apiKey = "5f091c27ecd3875fabda53b65ecd4358";
   let units = "metric";
