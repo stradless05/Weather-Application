@@ -5,17 +5,7 @@ current();
 let button = document.getElementById("submit");
 button.addEventListener("click", onButtonClick);
 
-let fLink = document.getElementById("fLink");
-let cLink = document.getElementById("cLink");
-fLink.addEventListener("click", clickF);
 
-function onButtonClick(event) {
-  let search = document.getElementById("search");
-  let city = search.value;
-  apiCall(city);
-  fLink.addEventListener("click", clickF);
-  cLink.removeEventListener("click", clickC);
-}
 function apiCall(city) {
   let apiKey = "5f091c27ecd3875fabda53b65ecd4358";
   let units = "metric";
@@ -35,7 +25,7 @@ function showResponse(response) {
   let descriptionElement = document.getElementById("looksLike");
   descriptionElement.innerHTML = response.data.weather[0].description;
   let tempElement = document.getElementById("temp");
-  tempElement.innerHTML = Math.round(response.data.main.temp);
+  tempElement.innerHTML = `${Math.round(response.data.main.temp)}°`;
   let humidityElement = document.getElementById("humidityElement");
   humidityElement.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   let windElement = document.getElementById("windElement");
@@ -54,22 +44,7 @@ function showResponse(response) {
 
   getForecast(response.data.coord);
 }
-function clickF(event) {
-  let defaultTempElement = document.getElementById("temp");
-  let defaultTemp = defaultTempElement.innerHTML;
-  let fahrenheitTemp = Math.round(defaultTemp * 1.8 + 32);
-  defaultTempElement.innerHTML = fahrenheitTemp;
-  fLink.removeEventListener("click", clickF);
-  cLink.addEventListener("click", clickC);
-}
-function clickC(event) {
-  let defaultTempElement = document.getElementById("temp");
-  let defaultTemp = defaultTempElement.innerHTML;
-  let celsiusTemp = Math.round((defaultTemp - 32) / 1.8);
-  defaultTempElement.innerHTML = celsiusTemp;
-  cLink.removeEventListener("click", clickC);
-  fLink.addEventListener("click", clickF);
-}
+
 
 function current() {
   let date = new Date();
@@ -112,7 +87,7 @@ function current() {
 function formatDay (timestamp){
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
@@ -135,10 +110,11 @@ forecast.forEach(function(forecastDay, index) {
      forecastDay.weather[0].icon
    }@2x.png"
    alt=""
+   class="forecast-image"
    width="42"
  />  
           <div class = "weather-forecast-temperature">
-      <span class = "weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}° |
+      <span class = "weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}° 
       </span>
       <span class = "weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span>
   </div>
