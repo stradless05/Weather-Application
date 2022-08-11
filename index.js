@@ -87,7 +87,7 @@ function current() {
 function formatDay (timestamp){
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tues", "Wed", "Thu", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[day];
 }
@@ -103,7 +103,7 @@ forecast.forEach(function(forecastDay, index) {
   if (index < 6) {
 
   forecastHTML= forecastHTML + `
-  <div class="col-2">
+  <div class="col-2 forecast-container">
    <div class = "weather-forecast-date">${formatDay(forecastDay.dt)}</div> 
    <img
    src="http://openweathermap.org/img/wn/${
@@ -114,7 +114,7 @@ forecast.forEach(function(forecastDay, index) {
    width="42"
  />  
           <div class = "weather-forecast-temperature">
-      <span class = "weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}° 
+      <span class = "weather-forecast-temperature-max">${Math.round(forecastDay.temp.max)}°/ 
       </span>
       <span class = "weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)}°</span>
   </div>
