@@ -2,6 +2,12 @@ apiCall("Paris");
 
 current();
 
+function onButtonClick(event) {
+  let search = document.getElementById("search");
+  let city = search.value;
+  apiCall(city);
+}
+
 
 function apiCall(city) {
   let apiKey = "5f091c27ecd3875fabda53b65ecd4358";
@@ -13,7 +19,6 @@ function apiCall(city) {
 function getForecast (coordinates) {
   let apiKey = '5f091c27ecd3875fabda53b65ecd4358';
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
 function showResponse(response) {
