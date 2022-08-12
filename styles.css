@@ -45,7 +45,7 @@
 }
 .city-name {
   font-family: "Orbitron", sans-serif;
-  font-size: 30px;
+  font-size: 40px;
 }
 .day-time {
   font-family: "Orbitron", sans-serif;
@@ -109,8 +109,11 @@
     padding-left: 0 !important;
     padding-right: 0 !important;
   }
+  .city-name {
+    font-size: 25px;
+  }
   .weather-forecast-date {
-    font-size: 12px;
+    font-size: 18px;
     color: black;
     font-family: "Orbitron", sans-serif;
   }
@@ -139,6 +142,9 @@
     color: black;
     font-family: "Orbitron", sans-serif;
     margin-top: 7px;
+  }
+  .city-name {
+    font-size: 25px;
   }
 }
 @media only screen and (max-width: 1000px) {
